@@ -1,9 +1,0 @@
-1. Private variable protect the information contained and keeps external code from modifying them directly, which can prevent unexpected outputs.
-
-2. the __is_empty method should be used in the pop() and top() methods to see if the stack is empty before trying to do something on a empty stack, this will prevent an error.  
-
-3. This helps us to easily find and correct errors early on before having lots of code and trying to find the error. This helps us to find and debug the issue. 
-
-4. Setting the top at the end creates a constant time complexity because we can just grab that item with no issues. if the top was at the front then it would have to shift all elements after the first element and would be a linear time complexity. 
-
-5. Unit testing involves testing each individual function to make sure they work correctly. In the lab we used test functions to check the behavior and how the stack works. it is important because it makes sure everything is working correctly and can help us catch bugs early on. 

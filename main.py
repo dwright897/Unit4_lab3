@@ -1,54 +1,56 @@
-# # Implementation & testing of the ArrayStack class
+# Dalton W.
+# Unit4_lab3
+# File Reverse
 
 from StackClass import ArrayStack
-from TEST_CODE import *
-import os
 
-'''
-Testing details can be found in TEST_CODE.py
+def cleaned_word(word):
+    clean = ""
+    for item in word:
+        if item.isalpha():
+            clean += item
+    return clean
 
-ENSURE ALL TESTS PASS BEFORE SUBMITTING
+def reverse_words(input_filename, output_filename, stack):
+    with open(input_filename, 'r')as filename:
+        contents = filename.read()
 
-IF COLORAMA NOT FOUND - ENTER INTO TERMINAL:
-pip install colorama
-'''
+    words = contents.split()
+
+
+    for item in words:
+        cleaned = cleaned_word(item)
+        if len(cleaned) >0:
+            stack.push(cleaned)
+
+    reversed = []
+    while len(stack) >0:
+        reversed.append(stack.pop())
+
+    with open(output_filename, 'w') as filename:
+        filename.write(' '.join(reversed))
+
+        
+
+
+
+
+
 
 def main():
-    
-    testStack = ArrayStack()
+    stack = ArrayStack()
+    input_file = "earnest.txt"
+    output_file = "earnest_reversed.txt"
 
-    # TEST 1 - Test privacy
-    # BEFORE TESTING: implement __init__, __is_empty()
-    TEST_privacy(testStack)
+    reverse_words(input_file, output_file, stack)
 
-
-    # TEST 2 - Test stack creation
-    # BEFORE TESTING: implement __len__, __str__
-    TEST_new_stack(testStack)
-    
-
-    # TEST 3 - Test push
-    # BEFORE TESTING: implement .push()
-    TEST_push(testStack)
+    print(f"Words from {input_file} have been reversed and saved to {output_file}")
 
 
-    # TEST 4 - Test pop
-    # BEFORE TESTING: implement .pop()
-    TEST_pop(testStack)
 
-
-    # TEST 5 - Test top
-    # BEFORE TESTING: implement .top()
-    TEST_top(testStack)
-
-
-    # TEST 6 - Test docstrings
-    # BEFORE TESTING: implement all methods & docstrings
-    TEST_docs(testStack)
 
 
 
 
 if __name__ == "__main__":
-    os.system("clear")
     main()

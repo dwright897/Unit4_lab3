@@ -1,0 +1,3 @@
+1. It will be using the first in last out technique like we used in lab 2. 
+
+2. Instead of using individual characters it will be using full words, keeping the words correct and not reversed but reversing the order of the words.
